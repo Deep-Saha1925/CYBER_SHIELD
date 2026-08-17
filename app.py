@@ -14,5 +14,9 @@ def phishing():
 def capture():
     return render_template('result.html')
 
+@app.route('/digital-arrest')
+def digital_arrest():
+    return render_template('digital_arrest.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
