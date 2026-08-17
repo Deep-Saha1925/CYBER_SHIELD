@@ -8,10 +8,7 @@ def home():
 
 @app.route('/phishing')
 def phishing():
-    return """
-    <h1>Phishing Simulation</h1>
-    <p>This page represents the website a victim might reach after clicking a suspicious link.</p>
-    """
+    return render_template('phishing.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
