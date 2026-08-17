@@ -10,5 +10,9 @@ def home():
 def phishing():
     return render_template('phishing.html')
 
+@app.route('/capture', methods=['POST'])
+def capture():
+    return render_template('result.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
