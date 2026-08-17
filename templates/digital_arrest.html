@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Arrest Simulation</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eeeeee;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .simulation {
+            background: #fff3cd;
+            border: 1px solid #ffda6a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .call {
+            background: #1f1f1f;
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .caller {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .message {
+            background: #333;
+            padding: 18px;
+            border-radius: 10px;
+            margin: 12px 0;
+        }
+
+        .danger {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .warning {
+            color: #ffd166;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 6px;
+            background: #d32f2f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .result {
+            background: white;
+            color: #222;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .red {
+            color: #c62828;
+        }
+
+        .green {
+            color: #2e7d32;
+        }
+
+        .step {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f5f5f5;
+            border-left: 5px solid #d32f2f;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div class="simulation">
+
+        ⚠️ <strong>EDUCATIONAL SIMULATION</strong>
+
+        <br>
+
+        This is a fictional Digital Arrest scam demonstration.
+
+    </div>
+
+
+    <div class="call">
+
+        <div class="caller">
+
+            📞 Incoming Video Call
+
+            <br><br>
+
+            <strong>Unknown Caller</strong>
+
+        </div>
+
+
+        <div class="message">
+
+            <strong>Caller:</strong>
+
+            <p>
+                Your identity information has been associated
+                with a serious criminal investigation.
+            </p>
+
+        </div>
+
+
+        <div class="message">
+
+            <strong class="danger">
+                Caller:
+            </strong>
+
+            <p>
+                You must cooperate immediately.
+                Disconnecting this call may create additional
+                legal problems.
+            </p>
+
+        </div>
+
+
+        <div class="message">
+
+            <strong class="warning">
+                Caller:
+            </strong>
+
+            <p>
+                Stay on the video call while your case is
+                supposedly being verified.
+            </p>
+
+        </div>
+
+
+        <div class="message">
+
+            <strong class="danger">
+                Caller:
+            </strong>
+
+            <p>
+                A payment is now supposedly required to
+                "clear" the investigation.
+            </p>
+
+        </div>
+
+
+        <button onclick="detectScam()">
+
+            Continue Simulation
+
+        </button>
+
+
+        <div id="result" class="result hidden">
+
+            <h1 class="red">
+                🚨 DIGITAL ARREST SCAM DETECTED
+            </h1>
+
+            <h2>
+                What techniques were used?
+            </h2>
+
+
+            <div class="step">
+
+                😨 <strong>Fear:</strong>
+
+                The victim is told that they are involved
+                in a serious crime.
+
+            </div>
+
+
+            <div class="step">
+
+                👮 <strong>Authority impersonation:</strong>
+
+                The scammer pretends to represent an
+                official authority.
+
+            </div>
+
+
+            <div class="step">
+
+                ⏱️ <strong>Urgency:</strong>
+
+                The victim is pressured to act immediately.
+
+            </div>
+
+
+            <div class="step">
+
+                🔒 <strong>Isolation:</strong>
+
+                The victim may be instructed not to
+                disconnect or contact others.
+
+            </div>
+
+
+            <div class="step">
+
+                💰 <strong>Financial demand:</strong>
+
+                The scam eventually attempts to obtain
+                money from the victim.
+
+            </div>
+
+
+            <h2 class="green">
+
+                🛡️ Reality Check
+
+            </h2>
+
+            <p>
+
+                A legitimate investigation should not require
+                you to transfer money to an unknown person
+                simply because they claim you are under
+                "digital arrest".
+
+            </p>
+
+            <p>
+
+                Verify claims independently using official
+                contact channels rather than relying on
+                information provided by the caller.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function detectScam() {
+
+    document.getElementById("result").style.display = "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
