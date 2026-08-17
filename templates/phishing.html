@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account Verification - Simulation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef1f5;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .warning {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            background: #fff3cd;
+            border: 1px solid #ffda6a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .box {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .fake-logo {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: #1976d2;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .small {
+            font-size: 13px;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="warning">
+        ⚠️ <strong>EDUCATIONAL SIMULATION</strong><br>
+        This is a fictional website created for the CyberShield project.
+        Do not enter real information.
+    </div>
+
+    <div class="box">
+
+        <div class="fake-logo">
+            SecureBank Demo
+        </div>
+
+        <h1>Verify Your Account</h1>
+
+        <p>
+            Your account requires verification before access can continue.
+        </p>
+
+        <form method="POST" action="/capture">
+
+            <label for="username">Demo Username</label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter dummy username"
+                required
+            >
+
+            <label for="password">Demo Password</label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter dummy password"
+                required
+            >
+
+            <button type="submit">
+                Verify Account
+            </button>
+
+        </form>
+
+        <p class="small">
+            Simulation only — no information is stored.
+        </p>
+
+    </div>
+
+</body>
+</html>
