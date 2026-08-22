@@ -1,0 +1,67 @@
+package com.deep.cybershieldapk
+
+import android.app.Activity
+import android.os.Bundle
+import android.graphics.Color
+import android.view.Gravity
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+
+class MainActivity : Activity() {a
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val layout = LinearLayout(this)
+
+        layout.orientation = LinearLayout.VERTICAL
+        layout.gravity = Gravity.CENTER
+        layout.setPadding(40, 40, 40, 40)
+
+        val title = TextView(this)
+        title.text = "🔒 CyberShield"
+        title.textSize = 30f
+        title.setTextColor(Color.BLACK)
+        title.gravity = Gravity.CENTER
+
+        val subtitle = TextView(this)
+        subtitle.text = "Android Security Update"
+        subtitle.textSize = 22f
+        subtitle.gravity = Gravity.CENTER
+
+        val description = TextView(this)
+        description.text =
+            "\n⚠ CYBERSECURITY DEMONSTRATION\n\n" +
+                    "This application demonstrates how a seemingly " +
+                    "harmless application can communicate with a remote server.\n\n" +
+                    "No real credentials or sensitive information are collected."
+
+        description.textSize = 16f
+        description.gravity = Gravity.CENTER
+
+        val button = Button(this)
+        button.text = "START DEMO"
+
+        val status = TextView(this)
+        status.text = "\nDemo not started"
+        status.textSize = 16f
+        status.gravity = Gravity.CENTER
+
+        layout.addView(title)
+        layout.addView(subtitle)
+        layout.addView(description)
+        layout.addView(button)
+        layout.addView(status)
+
+        setContentView(layout)
+
+        button.setOnClickListener {
+
+            status.text =
+                "\nDEMO EVENT STARTED\n\n" +
+                        "This is a cybersecurity simulation.\n\n" +
+                        "No real credentials or sensitive data were collected."
+        }
+    }
+}
