@@ -82,7 +82,7 @@ class MainActivity : Activity() {
         json.put("demo_id", "DEMO-001")
         json.put("platform", "Android")
         json.put("app_version", "1.0")
-        json.put("event", "demo_started")
+        json.put("event", "APP_OPENED")
 
         val body = json.toString()
             .toRequestBody("application/json".toMediaType())
