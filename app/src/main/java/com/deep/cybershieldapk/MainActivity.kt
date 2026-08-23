@@ -85,24 +85,44 @@ class MainActivity : Activity() {
         json.put("event", "APP_OPENED")
 
         val body = json.toString()
-            .toRequestBody("application/json".toMediaType())
+            .toRequestBody(
+                "application/json".toMediaType()
+            )
 
         val request = Request.Builder()
-            .url("https://fraud-protection.onrender.com/api/demo/event")
+            .url(
+                "https://fraud-protection.onrender.com/api/demo/event"
+            )
             .post(body)
             .build()
 
         Thread {
-            try {
-                val response = client.newCall(request).execute()
 
-                println("SERVER RESPONSE: ${response.code}")
+            try {
+
+                val response =
+                    client.newCall(request).execute()
+
+                val responseBody =
+                    response.body?.string()
+
+                println(
+                    "SERVER RESPONSE: ${response.code}"
+                )
+
+                println(
+                    "SERVER BODY: $responseBody"
+                )
 
                 response.close()
 
             } catch (e: Exception) {
-                println("NETWORK ERROR: ${e.message}")
+
+                println(
+                    "NETWORK ERROR: ${e.message}"
+                )
             }
+
         }.start()
     }
 }
