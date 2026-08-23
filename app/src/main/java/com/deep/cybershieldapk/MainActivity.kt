@@ -14,6 +14,10 @@ import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 
+import android.os.Build
+import android.os.BatteryManager
+import android.content.Context
+
 class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,10 +83,34 @@ class MainActivity : Activity() {
 
         val json = JSONObject()
 
-        json.put("demo_id", "DEMO-001")
-        json.put("platform", "Android")
-        json.put("app_version", "1.0")
+        val batteryManager =
+            getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+
+        val battery =
+            batteryManager.getIntProperty(
+                BatteryManager.BATTERY_PROPERTY_CAPACITY
+            )
+
+        val json = JSONObject()
+
         json.put("event", "APP_OPENED")
+
+        json.put("device_manufacturer", Build.MANUFACTURER)
+        json.put("device", Build.MODEL)
+        json.put("android_version", Build.VERSION.RELEASE)
+        json.put("android_sdk", Build.VERSION.SDK_INT)
+
+        json.put("battery_percent", battery)
+
+        json.put(
+            "locale",
+            java.util.Locale.getDefault().toString()
+        )
+
+        json.put(
+            "timezone",
+            java.util.TimeZone.getDefault().id
+        )
 
         val body = json.toString()
             .toRequestBody(
