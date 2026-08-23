@@ -93,18 +93,16 @@ class MainActivity : Activity() {
             .build()
 
         Thread {
-
             try {
-
                 val response = client.newCall(request).execute()
 
                 println("SERVER RESPONSE: ${response.code}")
 
-            } catch (e: Exception) {
+                response.close()
 
+            } catch (e: Exception) {
                 println("NETWORK ERROR: ${e.message}")
             }
-
         }.start()
     }
 }
