@@ -88,7 +88,7 @@ class MainActivity : Activity() {
             .toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:8000/api/demo/event")
+            .url("http://127.0.0.1:8000/api/demo/event")
             .post(body)
             .build()
 
