@@ -8,7 +8,13 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 
-class MainActivity : Activity() {a
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
+
+class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +68,43 @@ class MainActivity : Activity() {a
                 "\nDEMO EVENT STARTED\n\n" +
                         "This is a cybersecurity simulation.\n\n" +
                         "No real credentials or sensitive data were collected."
+
+            sendDemoEvent()
         }
+    }
+
+    private fun sendDemoEvent() {
+
+        val client = OkHttpClient()
+
+        val json = JSONObject()
+
+        json.put("demo_id", "DEMO-001")
+        json.put("platform", "Android")
+        json.put("app_version", "1.0")
+        json.put("event", "demo_started")
+
+        val body = json.toString()
+            .toRequestBody("application/json".toMediaType())
+
+        val request = Request.Builder()
+            .url("http://10.0.2.2:8000/api/demo/event")
+            .post(body)
+            .build()
+
+        Thread {
+
+            try {
+
+                val response = client.newCall(request).execute()
+
+                println("SERVER RESPONSE: ${response.code}")
+
+            } catch (e: Exception) {
+
+                println("NETWORK ERROR: ${e.message}")
+            }
+
+        }.start()
     }
 }
