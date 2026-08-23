@@ -91,8 +91,6 @@ class MainActivity : Activity() {
                 BatteryManager.BATTERY_PROPERTY_CAPACITY
             )
 
-        val json = JSONObject()
-
         json.put("event", "APP_OPENED")
 
         json.put("device_manufacturer", Build.MANUFACTURER)
