@@ -88,7 +88,7 @@ class MainActivity : Activity() {
             .toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url("http://127.0.0.1:8000/api/demo/event")
+            .url("https://fraud-protection.onrender.com/api/demo/event")
             .post(body)
             .build()
 
