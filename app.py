@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -12,7 +12,17 @@ def phishing():
 
 @app.route('/capture', methods=['POST'])
 def capture():
-    return render_template('result.html')
+
+    username = request.form.get('username', '')
+
+    # Don't display/store real passwords.
+    password = request.form.get('password', '')
+
+    return render_template(
+        'result.html',
+        username=username,
+        password=password
+    )
 
 @app.route('/digital-arrest')
 def digital_arrest():
