@@ -66,6 +66,8 @@ class MainActivity : Activity() {
 
         setContentView(layout)
 
+        sendDemoEvent("APP_LAUNCHED")
+
         button.setOnClickListener {
 
             status.text =
@@ -73,11 +75,11 @@ class MainActivity : Activity() {
                         "This is a cybersecurity simulation.\n\n" +
                         "No real credentials or sensitive data were collected."
 
-            sendDemoEvent()
+            sendDemoEvent("DEMO_STARTED")
         }
     }
 
-    private fun sendDemoEvent() {
+    private fun sendDemoEvent(eventName: String) {
 
         val client = OkHttpClient()
 
@@ -91,7 +93,7 @@ class MainActivity : Activity() {
                 BatteryManager.BATTERY_PROPERTY_CAPACITY
             )
 
-        json.put("event", "APP_OPENED")
+        json.put("event", eventName)
 
         json.put("device_manufacturer", Build.MANUFACTURER)
         json.put("device", Build.MODEL)
@@ -132,21 +134,15 @@ class MainActivity : Activity() {
                 val responseBody =
                     response.body?.string()
 
-                println(
-                    "SERVER RESPONSE: ${response.code}"
-                )
-
-                println(
-                    "SERVER BODY: $responseBody"
-                )
+                println("SERVER RESPONSE: ${response.code}")
+                println("SERVER BODY: $responseBody")
 
                 response.close()
 
             } catch (e: Exception) {
 
-                println(
-                    "NETWORK ERROR: ${e.message}"
-                )
+                println("NETWORK ERROR: ${e.message}")
+
             }
 
         }.start()
